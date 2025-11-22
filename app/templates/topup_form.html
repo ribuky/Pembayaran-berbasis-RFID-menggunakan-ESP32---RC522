@@ -1,0 +1,19 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+<div class="p-4">
+  <h2 class="text-2xl font-bold mb-4">Top Up Saldo</h2>
+
+  <div class="border p-4 rounded bg-white shadow mb-4">
+    <p><strong>Nama:</strong> {{ pelanggan.nama_pelanggan }}</p>
+    <p><strong>UID RFID:</strong> {{ pelanggan.uid_rfid }}</p>
+  </div>
+
+  <form method="POST">
+    <label for="nominal" class="block mb-2 font-semibold">Nominal Top Up:</label>
+    <input type="number" name="nominal" id="nominal" step="0.01" required class="border p-2 w-full mb-4 rounded">
+
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Tambah Saldo</button>
+    <a href="{{ url_for('tapping.tapping_page', uid=pelanggan.uid_rfid) }}" class="ml-2 text-gray-600">Kembali</a>
+  </form>
+</div>
+{% endblock %}

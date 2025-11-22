@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Kartu</title>
+</head>
+<body>
+  <h3>Data Pelanggan</h3>
+  <p>Nama: {{ pelanggan.nama_pelanggan }}</p>
+  <p>Kelas: {{ pelanggan.kelas }}</p>
+  <p>No HP: {{ pelanggan.no_hp }}</p>
+  <p>Saldo: Rp {{ saldo }}</p>
+
+  <hr>
+  <button>Transaksi</button>
+  <button>Top Up</button>
+  <button>Informasi Saldo</button>
+  <button>Cetak Transaksi</button>
+
+  <br><br>
+  <a href="{{ url_for('auth.logout') }}">Logout</a>
+</body>
+</html>
+
+<!-- @tapping_bp.route('/tapping/<uid>', methods=['GET'])
+@login_required
+def tapping_page(uid):
+    pelanggan = Pelanggan.query.filter_by(uid_rfid=uid).first()
+
+    if not pelanggan:
+        flash('Kartu belum terdaftar. Silakan daftarkan pelanggan terlebih dahulu.', 'error')
+        return redirect(url_for('pelanggan.pelanggan_list'))
+
+    saldo_topup = (
+        db.session.query(db.func.sum(Transaksi.nominal))
+        .filter_by(id_pelanggan=pelanggan.id, tipe='topup')
+        .scalar() or 0
+    )
+    saldo_keluar = (
+        db.session.query(db.func.sum(Transaksi.nominal))
+        .filter_by(id_pelanggan=pelanggan.id, tipe='pembelian')
+        .scalar() or 0
+    )
+    saldo = saldo_topup - saldo_keluar
+
+    return render_template('tapping_detail.html', pelanggan=pelanggan, saldo=saldo) -->
